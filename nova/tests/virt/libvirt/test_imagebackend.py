@@ -962,6 +962,10 @@ class RbdTestCase(_ImageTestCase, test.NoDBTestCase):
 
         self.assertFalse(image._is_cloneable(location))
 
+    def test_parent_compatible(self):
+        self.assertEqual(getargspec(imagebackend.Image.libvirt_info),
+             getargspec(self.image_class.libvirt_info))
+
 
 class BackendTestCase(test.NoDBTestCase):
     INSTANCE = {'name': 'fake-instance',
