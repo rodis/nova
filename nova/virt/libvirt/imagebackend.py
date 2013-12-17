@@ -726,7 +726,7 @@ class Rbd(Image):
         pass
 
     def snapshot_extract(self, target, out_format):
-        snap = 'rbd:%s/%s' % (self.pool, self.rbd_name)
+        snap = 'rbd:%s/%s:id=%s' % (self.pool, self.rbd_name, self.rbd_user)
         images.convert_image(snap, target, out_format)
 
     def snapshot_delete(self):
